@@ -46,7 +46,7 @@ if 'df_filtro' not in st.session_state:
 #======================================================================================
 scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
-credentials = Credentials.from_service_account_file('./gsheet.json', scopes=scope)
+credentials = Credentials.from_service_account_file(st.secrets["s_g"], scopes=scope)
 client = Client(scope=scope, creds=credentials)
 spread = Spread("Output_Form", client=client)
 
@@ -82,7 +82,7 @@ if 'e_m' not in st.session_state:
     st.session_state.e_m = []
 if 'e_c' not in st.session_state:
     st.session_state.e_c = []
-    
+
 if 'e_ll' not in st.session_state:
     st.session_state.e_ll = []
 #======================================================================================
@@ -181,7 +181,7 @@ with add_user:
         df_append = pd.DataFrame([[nombres, apellidos, genero, fecha, empresa, email, puesto, st.session_state.lugar_d, st.session_state.titulo_d, st.session_state.e_d, st.session_state.lugar_l, st.session_state.titulo_l, st.session_state.e_l, st.session_state.e_ll, st.session_state.lugar_m, st.session_state.titulo_m, st.session_state.e_m, st.session_state.lugar_c, st.session_state.titulo_c, st.session_state.e_c, c_i]], columns = name_columns)
         df = pd.concat([df, df_append], axis = 0)
         spread.df_to_sheet(df, index = False)
-        
+
 
 
         st.session_state.lugar_d = []
