@@ -49,7 +49,7 @@ if 'df_filtro' not in st.session_state:
 scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 
-credentials = Credentials.from_service_account_file(st.secrets["s_g"], scopes=scope)
+credentials = Credentials.from_service_account_info(st.secrets["s_g"], scopes=scope)
 client = Client(scope=scope, creds=credentials)
 spread = Spread("Output_Form", client=client)
 
