@@ -91,7 +91,7 @@ if 'e_ll' not in st.session_state:
 #======================================================================================
 #======================================================================================
 st.title("Cualquier otra imagen...")
-st.image("https://imgur.com/dcNy0eA")
+st.image("https://i.imgur.com/dcNy0eA.jpeg")
 st.markdown("***")
 st.subheader("Agregar información colaborador")
 add_user = st.expander("Formulario", expanded = False)
